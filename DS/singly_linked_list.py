@@ -48,6 +48,29 @@ class SinglyLinkedList:
             new_node.next_node = node.next_node
             node.next_node = new_node
 
+    def insert_before_item(self, item, data):
+        if self.head_node is None:
+            raise Exception('List has no element')
+
+        if item == self.head_node.data:
+            new_node = Node(data)
+            new_node.next_node = self.head_node
+            self.head_node = new_node
+            return
+
+        node = self.head_node
+        while node.next_node is not None:
+            if node.next_node.data == item:
+                break
+            node = node.next_node
+        if node.next_node is None:
+            raise Exception('Item not found in the list')
+        else:
+            new_node = Node(data)
+            new_node.next_node = node.next_node
+            node.next_node = new_node
+
+
 # ======== TEST ===========
 list_1 = SinglyLinkedList()
 list_1.head_node = Node(13)
@@ -62,8 +85,9 @@ node_3.next_node = node_4
 node_4.next_node = node_5
 
 list_1.insert_at_start(8)
-list_1.insert_at_end(233)
+list_1.insert_at_end(377)
 list_1.insert_after_item(89, 144)
+list_1.insert_before_item(377, 233)
 
 for item in list_1.traverse_list():
     print(item)
