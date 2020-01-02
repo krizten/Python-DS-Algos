@@ -20,6 +20,10 @@ class SinglyLinkedList:
                 yield value
                 value = value.next_node
 
+    def insert_at_start(self, data):
+        new_node = Node(data)
+        new_node.next_node = self.head_node
+        self.head_node = new_node
 
 
 # ======== TEST ===========
@@ -35,6 +39,12 @@ node_2.next_node = node_3
 node_3.next_node = node_4
 node_4.next_node = node_5
 
+list_1.insert_at_start(8)
+
 for item in list_1.traverse_list():
     print(item)
+
 # ======== TEST ===========
+
+
+# print(str(node_5))
