@@ -11,6 +11,16 @@ class SinglyLinkedList:
     def __init__(self):
         self.head_node = None
 
+    def traverse_list(self):
+        if self.head_node is None:
+            return None
+        else:
+            value = self.head_node
+            while value is not None:
+                yield value
+                value = value.next_node
+
+
 
 # ======== TEST ===========
 list_1 = SinglyLinkedList()
@@ -25,5 +35,5 @@ node_2.next_node = node_3
 node_3.next_node = node_4
 node_4.next_node = node_5
 
-print(str(node_5))
+print(list_1.traverse_list())
 # ======== TEST ===========
