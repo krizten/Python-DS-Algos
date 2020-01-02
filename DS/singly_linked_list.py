@@ -25,6 +25,16 @@ class SinglyLinkedList:
         new_node.next_node = self.head_node
         self.head_node = new_node
 
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if self.head_node is None:
+            self.head_node = new_node
+            return
+        tail_node = self.head_node
+        while tail_node.next_node is not None:
+            tail_node = tail_node.next_node
+        tail_node.next_node = new_node
+
 
 # ======== TEST ===========
 list_1 = SinglyLinkedList()
@@ -40,6 +50,7 @@ node_3.next_node = node_4
 node_4.next_node = node_5
 
 list_1.insert_at_start(8)
+list_1.insert_at_end(144)
 
 for item in list_1.traverse_list():
     print(item)
